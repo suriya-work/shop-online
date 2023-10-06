@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,300&family=Vazirmatn:wght@200;700&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.modal-backdrop {
+  position: fixed;
+  width: 100% !important;
+  top: 50%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 90;
+}
+
+
+body {
+  font-family: 'Vazirmatn', 'Roboto', sans-serif;
+  background-color: #ffff;
+}
+
+.navbarMenu {
+  border: 1px solid transparent !important;
+}
+
+.navbarMenu:hover {
+  border: 1px solid #ff0000 !important;
+}
+
+/* style media */
+@media(max-width:540px) {
+  .container-header {
+    position: relative;
+  }
+
+  .header-menu {
+    position: absolute;
+    left: 0;
+    top: 102%;
+    padding: 0;
+    background: #fff;
+    width: 95%;
+    /* border-radius: 20px; */
+  }
+
+  .cartItems {
+    padding-left: 0 !important;
+
+  }
+
+}
+
+
+
+@media(max-width:768px) {
+  .cartItems {
+    padding-left: 3rem;
+
+  }
+}
+
