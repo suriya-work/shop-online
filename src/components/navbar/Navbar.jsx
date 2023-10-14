@@ -117,12 +117,12 @@ export default function Navbar() {
                         </svg>
                       </div>
                       {/* onClick={showHandler} */}
-                      <input type="text" placeholder='Search...' value={search} onChange={searchHandler} id="default-search" className="block w-full p-[6px] pl-14 text-sm text-gray-900 border rounded-lg bg-[#fff] focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+                      <input type="text" placeholder='Search...' value={search} onChange={searchHandler} id="default-search" className="block w-full p-[6px] pl-10 text-sm text-gray-900 border rounded-lg bg-[#fff] focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
                     </div>
                   </form>
                   <div className='mr-3 relative'>
                     <GiShoppingCart size={30} onClick={() => setShown(!shown)} />
-                    <span className="px-[9px] py-[1px]  rounded-full font-bold bg-myRed absolute bottom-5 left-4 text-white">
+                    <span className="px-[9px] py-[2px]  rounded-full font-bold bg-myRed absolute bottom-5 left-4 text-white">
                       {amount}
                     </span>
 
