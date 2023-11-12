@@ -72,7 +72,7 @@ export default function Navbar() {
               <div className="relative flex h-16 items-center justify-between">
                 <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                   {/* Mobile menu button*/}
-                  <Disclosure.Button className="relative inline-flex items-center justify-center rounded-md p-3  text-black pt-[2rem] focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                  <Disclosure.Button className="relative inline-flex items-center justify-center rounded-md p-3  text-black pt-[2rem]">
                     <span className="absolute -inset-0.5" />
                     {/* <span className="sr-only">Open main menu</span> */}
                     {open ? (
@@ -112,17 +112,17 @@ export default function Navbar() {
                   <form>
                     <div className="relative mr-6">
                       <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                        <svg className="w-4 h-4  dark:text-gray-400" ariaHidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                        <svg className="w-4 h-4" ariaHidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                           <path stroke="currentColor" strokeLinejoin="round" strokeWidth="3" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
                         </svg>
                       </div>
                       {/* onClick={showHandler} */}
-                      <input type="text" placeholder='Search...' value={search} onChange={searchHandler} id="default-search" className="block w-full p-[6px] pl-10 text-sm text-gray-900 border rounded-lg bg-[#fff] focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+                      <input type="text" placeholder='Search...' value={search} onChange={searchHandler} id="default-search" className="block w-full p-[6px] pl-10 text-sm border rounded-lg bg-[#fff]" />
                     </div>
                   </form>
                   <div className='mr-3 relative'>
                     <GiShoppingCart size={30} onClick={() => setShown(!shown)} />
-                    <span className="px-[9px] py-[2px]  rounded-full font-bold bg-myRed absolute bottom-5 left-4 text-white">
+                    <span className="w-[22px] h-[22px] px-[7px] py-[1px] rounded-full font-bold bg-myRed absolute bottom-5 left-4 text-white">
                       {amount}
                     </span>
 

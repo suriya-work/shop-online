@@ -16,6 +16,7 @@ import Detailpage from './components/detailpage/Detailpage';
 import Finalpage from './components/finalpage/Finalpage';
 const App = () => {
   return (
+    <div className='min-h-screen grid grid-rows-[80px_1fr_auto]'>
     <Provider store={store}>
       <Navbar />
       <Routes>
@@ -29,6 +30,7 @@ const App = () => {
 
       <Footer />
     </Provider>
+    </div>
   )
 }
 
