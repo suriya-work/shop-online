@@ -34,17 +34,18 @@ function Cartpage() {
                 ) : (
                     myData.map((item) => {
                         return (
-                            <div className="border p-5 flex flex-col md:flex-row rounded-[8px] justify-between items-center w-[100%] md:w-[73%] lg:w-[70%]">
-                                <div className="w-[150px] h-[140px] mr-10 ">
+                            <div className="border-t-[2px] border-t-myRed  p-5 flex flex-col md:flex-row  justify-between items-center w-[100%] md:w-[73%] lg:w-[70%]">
+                                <div className="w-[150px] h-[140px] mr-5 border rounded-[10px] p-5">
                                     <Link to={`/products/${item.id}`}>
                                         <img src={item.image} alt="image" className="w-full h-full" />
                                     </Link>
                                 </div>
-                                <div className="flex w-[40%] justify-between">
-                                    <p className="font-bold text-[16px] md:text-[20px]">{item.title}</p>
-                                    <p className="font-bold text-[16px] text-myRed mt-1">
+                                <div className="flex flex-col w-[50%]">
+                                    <p className="font-bold text-[16px] md:text-[20px] lg:pt-0 pt-3">{item.title}</p>
+                                    <p className="font-bold text-[16px] text-Red mt-1">
                                         ${item.price}
                                     </p>
+                                    
                                 </div>
                                 <div className="flex gap-8 md:ml-auto items-center ">
                                     <BsFillTrashFill
@@ -81,7 +82,7 @@ function Cartpage() {
                     // <div className="">
                     <div className="w-[70%] h-[300px] md:w-[25%] rounded-[8px] m-auto md:h-[293px] flex flex-col  items-center justify-evenly md:fixed md:right-0 md:mr-1 lg:mr-24">
                         <h2 className="font-bold text-[30px] text-center">Total Price</h2>
-                        <h2 className="font-bold text-myRed text-[30px] text-center">
+                        <h2 className="font-bold text-Red text-[30px] text-center">
                             ${parseFloat(total).toFixed(2)}
                         </h2>
                         <Link to="/finalpage">

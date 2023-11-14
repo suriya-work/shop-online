@@ -97,7 +97,7 @@ export default function Navbar() {
                           key={item.name}
                           to={item.href}
                           className={classNames(
-                            item.current ? 'text-black' : 'hover:text-[#ff0000]',
+                            item.current ? 'text-black' : 'hover:text-[#969696]',
                             'px-6 py-4 text-sm font-bold mx-4 me-0 nav-menu  hover:border rounded-[20px] navbarMenu'
                           )}
                           aria-current={item.current ? 'page' : undefined}

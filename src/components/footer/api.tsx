@@ -1,0 +1,30 @@
+export const FooterJsone = [
+    {
+        id:1,
+        title1:'Mens',
+        title2:'Womens',
+        title3:'Jewelery',
+        title4:'Electronics',
+    },
+    {
+        id:2,
+        title1:'Mens',
+        title2:'Womens',
+        title3:'Jewelery',
+        title4:'Electronics',
+    },
+    {
+        id:3,
+        title1:'Mens',
+        title2:'Womens',
+        title3:'Jewelery',
+        title4:'Electronics',
+    },
+    {
+        id:3,
+        title1:'Mens',
+        title2:'Womens',
+        title3:'Jewelery',
+        title4:'Electronics',
+    },
+]

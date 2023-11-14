@@ -10,8 +10,12 @@ export default {
         'white': '#fff',
         // 'gray' : '#fbf0e4',
         'green': '#487664',
-        'myRed': '#ff0000',
+        'myRed': '#969696',
+        'Red': '#ff0000',
       },
+    },
+    container: {
+      center: true
     },
   },
   plugins: [],

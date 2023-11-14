@@ -16,7 +16,7 @@ function Detailpage() {
       key={singlePost.id}
     >
       <div className="flex flex-col lg:flex-row">
-        <div className="w-full lg:w-[40%] bg-[#fcfcfc] overflow-hidden border m-auto p-3 rounded-[16px] shadow-1xl">
+        <div className="w-full lg:w-[40%] bg-[#fcfcfc] overflow-hidden border m-auto p-3 rounded-[16px] shadow-1xl hover:shadow-2xl ">
           <img
             src={singlePost.image}
             alt="productImage"
@@ -37,14 +37,14 @@ function Detailpage() {
           <span className=" overflow-hidden pt-4">
             <p className="text-[16px] text-center lg:text-left">{singlePost.description}...</p>
           </span>
-          <p className="text-myRed text-[20px] font-bold mt-7 flex justify-center lg:justify-start ">${singlePost.price}
+          <p className="text-Red text-[20px] font-bold mt-7 flex justify-center lg:justify-start ">${singlePost.price}
           </p>
           <div className="pt-[3rem] flex justify-between">
             <button className="pb-3" onClick={() => navigat(-1)}>
-              <IoMdArrowRoundBack size={30} color="red" />
+              <IoMdArrowRoundBack size={30} color="#969696" />
             </button>
             <button
-              className="border bg-white pt-2 text-myRed rounded-2xl w-[150px] h-[50px]  justify-center items-center border-myRed  hover:bg-myRed  hover:text-white transition-all ease-linear duration-300  "
+              className="border bg-white pt-1 text-myRed rounded-2xl w-[150px] h-[50px]  justify-center items-center border-myRed  hover:bg-myRed  hover:text-white transition-all ease-linear duration-300  "
               id="abc"
               onClick={() =>
                 dispatch(

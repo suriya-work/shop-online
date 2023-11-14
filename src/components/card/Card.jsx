@@ -43,13 +43,13 @@ const Card = (props) => {
                                 <p className='text-center text-[14px] text-black pt-7'>{item.category}</p>
                                 <div className=" text-center mb-10">
                                     <p
-                                        className="text-myRed text-[16px] font-bold mt-7"
+                                        className="text-Red text-[16px] font-bold mt-7"
                                 
                                     >
                                         ${item.price}
                                     </p>
                                     <button title='Add To Cart'
-                                        className="border text-black rounded-[20px] w-[150px] h-[40px] mt-6 font-bold hover:bg-myRed hover:text-white"
+                                        className="border text-black rounded-[20px] w-[150px] h-[40px] mt-6 pt-1 font-bold hover:bg-myRed hover:text-white"
                     
                                         onClick={() => dispatch(addToCart({
                                             id: item.id,

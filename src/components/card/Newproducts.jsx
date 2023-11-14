@@ -38,7 +38,7 @@ const Newproducts = () => {
                 <p className='text-center text-[14px] text-black pt-7'>{item.category}</p>
                 <div className=" text-center mb-10">
                   <p
-                    className="text-myRed text-[16px] font-bold mt-7"
+                    className="text-Red text-[16px] font-bold mt-7"
                   // style={{
                   //     display: isActive ? "none" : "",
                   // }}
@@ -46,7 +46,7 @@ const Newproducts = () => {
                     ${item.price}
                   </p>
                   <button title='Add To Cart'
-                    className="border text-black rounded-[20px] w-[150px] h-[40px] mt-6 font-bold hover:bg-myRed hover:text-white"
+                    className="border text-black rounded-[20px] w-[150px] h-[40px] pt-1 mt-6 font-bold hover:bg-myRed hover:text-white"
                     // style={{
                     //     display: isActive ? "flex" : "",
                     // }}
