@@ -17,21 +17,23 @@ import Detailpage from './components/detailpage/Detailpage';
 import Finalpage from './components/finalpage/Finalpage';
 const App = () => {
   return (
-    <div className='min-h-screen grid grid-rows-[80px_1fr_auto]'>
+    <>
       <Provider store={store}>
-        <Navbar />
-        <Routes>
-          <Route path='/' element={<Banner />} />
-          <Route path='/newproducts' element={<Newproducts />} />
-          <Route path='/cartpage' element={<Cartpage />} />
-          <Route path='products/:productId' element={<Detailpage />} />
-          <Route path='/finalpage' element={<Finalpage />} />
-          {/* <Route path="products/:productId" element={<Detailpage />} /> */}
-        </Routes>
-        <Footer />
-        {/* </div> */}
+        <div className='min-h-screen grid grid-rows-[80px_1fr_auto]'>
+          <Navbar />
+            <Routes>
+              <Route path='/' element={<Banner />} />
+              <Route path='/newproducts' element={<Newproducts />} />
+              <Route path='/cartpage' element={<Cartpage />} />
+              <Route path='products/:productId' element={<Detailpage />} />
+              <Route path='/finalpage' element={<Finalpage />} />
+              {/* <Route path="products/:productId" element={<Detailpage />} /> */}
+            </Routes>
+          <Footer />
+          {/* </div> */}
+        </div>
       </Provider>
-    </div>
+    </>
 
   )
 }

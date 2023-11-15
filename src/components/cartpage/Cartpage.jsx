@@ -34,44 +34,48 @@ function Cartpage() {
                 ) : (
                     myData.map((item) => {
                         return (
-                            <div className="border-t-[2px] border-t-myRed  p-5 flex flex-col md:flex-row  justify-between items-center w-[100%] md:w-[73%] lg:w-[70%]">
-                                <div className="w-[150px] h-[140px] mr-5 border rounded-[10px] p-5">
-                                    <Link to={`/products/${item.id}`}>
-                                        <img src={item.image} alt="image" className="w-full h-full" />
-                                    </Link>
-                                </div>
-                                <div className="flex flex-col w-[50%]">
-                                    <p className="font-bold text-[16px] md:text-[20px] lg:pt-0 pt-3">{item.title}</p>
-                                    <p className="font-bold text-[16px] text-Red mt-1">
-                                        ${item.price}
-                                    </p>
-                                    
-                                </div>
-                                <div className="flex gap-8 md:ml-auto items-center ">
-                                    <BsFillTrashFill
-                                        color="red"
-                                        size={18}
-                                        className="cursor-pointer"
-                                        onClick={() => dispatch(removeItem(item.id))}
-                                    />
-                                    <div className="flex gap-3">
-                                        <button
-                                            className="border w-[25px] h-[25px] font-bold rounded-full cursor-pointer"
-                                            onClick={() => dispatch(incrementQuantity(item.id))}
-                                        >
-                                            +
-                                        </button>
-                                        <div className="font-bold">
-                                            <p className="pt-1">
-                                                {item.quantity}
-                                            </p>
+                            <div className="border-t-[2px] border-t-myRed w-[100%] md:w-[73%] lg:w-[70%]">
+                                <div className="flex  md:flex-row  justify-between items-center w-[100%] md:w-[73%] lg:w-[100%] mt-6">
+
+
+                                    <div className=" w-[150px] h-[110px] mr-5 border rounded-[10px] px-4 py-1 mt-4">
+                                        <Link to={`/products/${item.id}`}>
+                                            <img src={item.image} alt="image" className="w-full h-full" />
+                                        </Link>
+                                    </div>
+                                    <div className="flex flex-col w-[50%] mt-5">
+                                        <p className="font-bold text-[16px] md:text-[20px] lg:pt-0 pt-3">{item.title}</p>
+                                        <p className="font-bold text-[16px] text-Red mt-4">
+                                            ${item.price}
+                                        </p>
+
+                                    </div>
+                                    <div className="flex gap-8 md:ml-auto  items-center md:mt-28 mt-28">
+                                        <BsFillTrashFill
+                                            color="red"
+                                            size={18}
+                                            className="cursor-pointer"
+                                            onClick={() => dispatch(removeItem(item.id))}
+                                        />
+                                        <div className="flex gap-3">
+                                            <button
+                                                className="border w-[25px] h-[25px] font-bold rounded-full cursor-pointer"
+                                                onClick={() => dispatch(incrementQuantity(item.id))}
+                                            >
+                                                +
+                                            </button>
+                                            <div className="font-bold">
+                                                <p className="pt-1">
+                                                    {item.quantity}
+                                                </p>
+                                            </div>
+                                            <button
+                                                className="border w-[25px] h-[25px] font-bold rounded-full cursor-pointer"
+                                                onClick={() => dispatch(decrementQuantity(item.id))}
+                                            >
+                                                -
+                                            </button>
                                         </div>
-                                        <button
-                                            className="border w-[25px] h-[25px] font-bold rounded-full cursor-pointer"
-                                            onClick={() => dispatch(decrementQuantity(item.id))}
-                                        >
-                                            -
-                                        </button>
                                     </div>
                                 </div>
                             </div>

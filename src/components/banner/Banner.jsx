@@ -5,7 +5,12 @@ register();
 const Banner = () => {
     return (
         <>
-            <div className="w-full mt-8 pt-16 container mx-auto">
+         <img
+                            src="https://images.vexels.com/content/197863/preview/handmade-online-shop-slider-template-7d508f.png"
+                            alt="slider"
+                            className="w-full"
+                        />
+            {/* <div className="w-full mt-8 pt-16 container mx-auto">
                 <swiper-container
                     speed="500"
                     loop="true"
@@ -15,25 +20,7 @@ const Banner = () => {
                         "--swiper-pagination-color": "#fff",
                         "--swiper-navigation-color": "#fff",
                     }}
-                    // slidesPerView={1}
-                    // spaceBetween={10}
-                    // pagination={{
-                    //     clickable: true,
-                    // }}
-                    // breakpoints={{
-                    //     640: {
-                    //         slidesPerView: 2,
-                    //         spaceBetween: 20,
-                    //     },
-                    //     768: {
-                    //         slidesPerView: 4,
-                    //         spaceBetween: 40,
-                    //     },
-                    //     1024: {
-                    //         slidesPerView: 5,
-                    //         spaceBetween: 50,
-                    //     },
-                    // }}
+                  
                 >
                     <swiper-slide>
                         <img
@@ -57,7 +44,7 @@ const Banner = () => {
                         />
                     </swiper-slide>
                 </swiper-container>
-            </div>
+            </div> */}
             <Card titleName="Hot Products men's Clothing" firstName="men's clothing" />
             <Card titleName="Hot Products Jewelery" firstName="jewelery" />
             <Card titleName="Hot Products Electronics" firstName="electronics" />
