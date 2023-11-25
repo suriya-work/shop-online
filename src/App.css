@@ -5,6 +5,7 @@
   margin: 0;
   box-sizing: border-box;
 }
+
 .modal-backdrop {
   position: fixed;
   width: 100% !important;

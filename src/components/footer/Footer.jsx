@@ -1,30 +1,46 @@
-import React from 'react';
-import logo from '../../../public/images/logo.png'
-import { FooterJsone } from './api';
+import React from "react";
+import { Link } from 'react-router-dom';
+import { BsFillSuitHeartFill } from "react-icons/bs";
+// import { RiDoubleQuotesL, RiDoubleQuotesR } from "react-icons/ri";
+import { footerContent } from "../api/footer";
+import SocialPart from "./SocialPart";
 
 const Footer = () => {
     return (
-        <footer className='bg-[#fff] w-full shadow-2xl mt-5 border-t-[2px] border-t-[#f1eeee]'>
-            <div className='container mx-auto flex pt-5'>
-                <div >
-
-                    <img src={logo} alt="logo" className='w-[60px]' />
-                    <p className='font-bold text-myRed text-[16px] pt-2'>Lorem, ipsum dolor sit amet consectetur</p>
+        <footer className="container mx-auto flex justify-between flex-wrap flex-grow min-width-[800px] lg:mr-3 xl:rtl:pl-50 border-t-[1px] border-slate-500/30">
+           
+                
+            
+            {footerContent.map((item) => {
+                return (
+                    <div className="mt-6 md:mt-0 lg:mt-6 leading-10" key={item.title}>
+                        <h2 className="text-[20px] font-bold px-2">
+                            {[item.title]}
+                        </h2>
+                        <div className="flex flex-col mt-2">
+                            {item.subtitles.map((subItem) => {
+                                return (
+                                    <Link to={subItem.href} key={subItem.text}>
+                                        <a className="text-sm hover:text-myRed font-bold text-[#282929] px-4 py-2 hover:text-palette-base/100">
+                                            {[subItem.text]}
+                                        </a>
+                                    </Link>
+                                );
+                            })}
+                        </div>
+                    </div>
+                );
+            })}
+            <div className="">
+                <div className="flex flex-wrap py-4 md:py-8 md:px-4 w-full xl:max-w-[2100px] mx-auto">
+                    <SocialPart />
                 </div>
-                <div className='flex gap-10 mt-8 ml-14 justify-center items-center text-center'>
-
-                    <span className='text-myRed text-[16px]'>Mens</span>
-                    <span className='text-myRed text-[16px]'>Mens</span>
-                    <span className='text-myRed text-[16px]'>Mens</span>
-                    <span className='text-myRed text-[16px]'>Mens</span>
-                </div>
-
             </div>
-            <p className='text-myRed text-[14px] pt-2 text-center '>Copyright © 2023.Company Www.Malls-10.Top All Rights Reserved.</p>
 
+            {/* <SocialPart /> */}
         </footer>
-        // fixed bottom-0 overflow-hidden 
-    )
-}
 
-export default Footer
+    );
+};
+
+export default Footer;
