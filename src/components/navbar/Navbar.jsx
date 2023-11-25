@@ -3,7 +3,8 @@ import React, { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Disclosure } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
-import { GiShoppingCart } from 'react-icons/gi'
+import { GiShoppingCart } from 'react-icons/gi';
+import { AiOutlineShoppingCart } from "react-icons/ai";
 import logo from '../../../public/images/logo.png'
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchAllProducts } from '../../redux/features/products/productSlice';
@@ -84,11 +85,13 @@ export default function Navbar() {
                 </div>
                 <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start mt-5">
                   <div className="flex flex-shrink-0 items-center">
-                    <img
-                      className="w-[100px] hidden sm:block"
-                      src={logo}
-                      alt="logo"
-                    />
+                    <Link to='/'>
+                      <img
+                        className="w-[100px] hidden sm:block"
+                        src={logo}
+                        alt="logo"
+                      />
+                    </Link>
                   </div>
                   <div className="md:hidden lg:flex ml-6 hidden">
                     <div className="flex m-auto">
@@ -117,12 +120,12 @@ export default function Navbar() {
                         </svg>
                       </div>
                       {/* onClick={showHandler} */}
-                      <input type="text" placeholder='Search...' value={search} onChange={searchHandler} id="default-search" className="block w-full p-[6px] pl-10 text-sm border rounded-lg bg-[#fff]" />
+                      <input type="text" placeholder='Search...' value={search} onChange={searchHandler} id="default-search" className="block w-full lg:px-12 p-[6px] pl-10 text-sm border rounded-lg bg-[#fff]" />
                     </div>
                   </form>
                   <div className='mr-3 relative'>
-                    <GiShoppingCart size={30} onClick={() => setShown(!shown)} />
-                    <span className="w-[22px] h-[22px] px-[7px] py-[1px] rounded-full font-bold bg-myRed absolute bottom-5 left-4 text-white">
+                    <AiOutlineShoppingCart size={30} onClick={() => setShown(!shown)} />
+                    <span className="w-[22px] h-[22px] px-[9px] py-[1px] rounded-full font-bold bg-[#A71B4A] absolute bottom-5 left-4 text-white">
                       {amount}
                     </span>
 

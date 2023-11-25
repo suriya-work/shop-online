@@ -1,15 +1,17 @@
 import React from 'react'
 import Card from '../card/Card';
-import { register } from "swiper/element/bundle"; 
-register();
+// import { register } from "swiper/element/bundle";
+import fashion from '../../../public/images/fashion-banner (2).png'
+import Box from '../box/Box';
+// register();
 const Banner = () => {
     return (
         <>
-         <img
-                            src="https://images.vexels.com/content/197863/preview/handmade-online-shop-slider-template-7d508f.png"
-                            alt="slider"
-                            className="w-full"
-                        />
+            <div className='container mx-auto mt-5'>
+
+            <img src={fashion} alt="fashion" />
+            </div>
+            <Box />
             {/* <div className="w-full mt-8 pt-16 container mx-auto">
                 <swiper-container
                     speed="500"

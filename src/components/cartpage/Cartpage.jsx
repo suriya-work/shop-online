@@ -45,14 +45,14 @@ function Cartpage() {
                                     </div>
                                     <div className="flex flex-col w-[50%] mt-5">
                                         <p className="font-bold text-[16px] md:text-[20px] lg:pt-0 pt-3">{item.title}</p>
-                                        <p className="font-bold text-[16px] text-Red mt-4">
+                                        <p className="font-bold text-[16px] text-[#A71B4A] mt-4">
                                             ${item.price}
                                         </p>
 
                                     </div>
                                     <div className="flex gap-8 md:ml-auto  items-center md:mt-28 mt-28">
                                         <BsFillTrashFill
-                                            color="red"
+                                            color="#A71B4A"
                                             size={18}
                                             className="cursor-pointer"
                                             onClick={() => dispatch(removeItem(item.id))}
@@ -84,9 +84,10 @@ function Cartpage() {
                 )}
                 {myData.length !== 0 ? (
                     // <div className="">
-                    <div className="w-[70%] h-[300px] md:w-[25%] rounded-[8px] m-auto md:h-[293px] flex flex-col  items-center justify-evenly md:fixed md:right-0 md:mr-1 lg:mr-24">
-                        <h2 className="font-bold text-[30px] text-center">Total Price</h2>
-                        <h2 className="font-bold text-Red text-[30px] text-center">
+                    <div className="w-[60%] h-[200px] md:w-[25%] rounded-[8px] m-auto md:h-[293px] flex flex-col  items-center justify-evenly md:fixed md:right-0 md:mr-1 lg:mr-24 lg:bottom-36">
+                        <h2 className="font-bold text-[28px] text-center">Order Summary</h2>
+                        <h2 className="font-bold text-[20px] text-center">Total Price</h2>
+                        <h2 className="font-bold text-[#A71B4A] text-[20px] text-center">
                             ${parseFloat(total).toFixed(2)}
                         </h2>
                         <Link to="/finalpage">

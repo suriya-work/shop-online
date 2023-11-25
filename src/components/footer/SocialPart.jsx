@@ -30,15 +30,15 @@ const SocialPart = () => {
                 </div>
             </div>
             <div className="mt-6">
-                {/* <h2 className="text-md sm:text-lg">{t.emailRegister}</h2> */}
+                <h2 className="text-md sm:text-lg">Stay up to date with the latest discounts by emailing us</h2>
                 <form
-                    className="flex items-center flex-wrap sm:flex-nowrap mt-4"
+                    className="flex items-center flex-wrap sm:flex-nowrap mt-7"
                     onSubmit={(e) => {
                         e.preventDefault();
                     }}
                 >
                     <input
-                        className="w-full py-3 px-10  placeholder-gray-500 pl-[25px] outline-none rounded-lg sm:rounded-none sm:rounded-tl-lg sm:rounded-bl-lg rounded-tr-lg rounded-br-lg shadow-md  focus:shadow-sm"
+                        className="w-full py-3 px-12  placeholder-gray-500 pl-[15px] outline-none rounded-lg sm:rounded-none sm:rounded-tl-lg sm:rounded-bl-lg rounded-tr-lg rounded-br-lg shadow-md  focus:shadow-sm"
                         type="email"
                         placeholder="Please Enter Your Email"
                     />
