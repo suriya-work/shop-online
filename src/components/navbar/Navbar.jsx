@@ -125,7 +125,7 @@ export default function Navbar() {
                   </form>
                   <div className='mr-3 relative'>
                     <AiOutlineShoppingCart size={30} onClick={() => setShown(!shown)} />
-                    <span className="w-[22px] h-[22px] px-[9px] py-[1px] rounded-full font-bold bg-[#A71B4A] absolute bottom-5 left-4 text-white">
+                    <span className="w-[22px] h-[22px] px-[7px] py-[1px] rounded-full bg-[#A71B4A] absolute bottom-5 left-4 text-white">
                       {amount}
                     </span>
 
