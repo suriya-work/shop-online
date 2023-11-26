@@ -12,7 +12,7 @@ const SocialPart = () => {
                 <div className="flex gap-5 mt-3">
                     {socialMedia.map((SocialItem) => {
                         return (
-                            <Link to={SocialItem.href} key={SocialItem.name}>
+                            <Link to='#' key={SocialItem.name}>
                                 <a
                                     className="px-2 opacity-60 hover:opacity-100 transition-opacity duration-300 ease-in-out"
                                     aria-label={SocialItem.name}
