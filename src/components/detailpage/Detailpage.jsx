@@ -2,7 +2,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { addToCart } from "../../redux/features/products/productSlice";
 import { IoIosStarOutline, IoMdArrowRoundBack } from 'react-icons/io';
-import Box from "../box/Box";
 
 function Detailpage() {
   const navigat = useNavigate();
@@ -66,7 +65,6 @@ function Detailpage() {
 
           </div>
         </div>
-      <Box />
       </div>
     </>
   );
