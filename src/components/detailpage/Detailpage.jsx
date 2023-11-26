@@ -17,7 +17,7 @@ function Detailpage() {
         key={singlePost.id}
       >
         <div className="flex flex-col lg:flex-row">
-          <div className="w-full lg:w-[40%] bg-[#fcfcfc] overflow-hidden border m-auto p-3 rounded-[16px]">
+          <div className="w-full lg:w-[40%] bg-[#fff] shadow-md overflow-hidden border m-auto p-3 rounded-[16px]">
             <img
               src={singlePost.image}
               alt="productImage"
