@@ -1,9 +1,9 @@
 
-import React, { useEffect, useState, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { Disclosure } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
-import { GiShoppingCart } from 'react-icons/gi';
+// import { GiShoppingCart } from 'react-icons/gi';
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import logo from '../../../public/images/logo.png'
 import { useDispatch, useSelector } from 'react-redux';
@@ -16,7 +16,6 @@ const navigation = [
   { name: 'Home', href: '/', current: true },
   { name: "Men's Products", href: '/newproducts', current: false },
   { name: 'Jewelery Products', href: '#', current: false },
-  // { name: '2023 Specials Products', href: '#', current: false },
 ]
 
 function classNames(...classes) {
@@ -24,10 +23,11 @@ function classNames(...classes) {
 }
 
 export default function Navbar() {
+  const location = useLocation();
   const [search, setSearch] = useState(" ");
   const [searchMyData, setSearchMyData] = useState([]);
   const [shown, setShown] = useState(false);
-  const [showCart, setShowCart] = useState(false);
+  // const [showCart, setShowCart] = useState(false);
   const dispatch = useDispatch();
   const { amount, cart, products } = useSelector((state) => state.product);
 
@@ -59,10 +59,10 @@ export default function Navbar() {
   //   setShow((current) => !current);
   //   !showCart ? setShowCart((current) => !current) : ""
   // }
-  const showCartHandler = () => {
-    setShowCart((current) => !current);
-    !show ? setShow((current) => !current) : ""
-  }
+  // const showCartHandler = () => {
+  //   setShowCart((current) => !current);
+  //   !show ? setShow((current) => !current) : ""
+  // }
 
   return (
     <>
@@ -75,7 +75,6 @@ export default function Navbar() {
                   {/* Mobile menu button*/}
                   <Disclosure.Button className="relative inline-flex items-center justify-center rounded-md p-3  text-black pt-[2rem]">
                     <span className="absolute -inset-0.5" />
-                    {/* <span className="sr-only">Open main menu</span> */}
                     {open ? (
                       <XMarkIcon className="block h-7 w-7" aria-hidden="true" />
                     ) : (
@@ -95,19 +94,20 @@ export default function Navbar() {
                   </div>
                   <div className="md:hidden lg:flex ml-6 hidden">
                     <div className="flex m-auto">
-                      {navigation.map((item) => (
-                        <Link
-                          key={item.name}
-                          to={item.href}
-                          className={classNames(
-                            item.current ? 'text-black' : 'hover:text-[#969696]',
-                            'px-6 py-4 text-sm font-bold mx-4 me-0 nav-menu  hover:border rounded-[20px] navbarMenu'
-                          )}
-                          aria-current={item.current ? 'page' : undefined}
-                        >
-                          {item.name}
-                        </Link>
-                      ))}
+                      {navigation.map((item) => {
+                        const isActive = location.pathname === item.href;
+                        return (
+                          <Link
+                            key={item.name}
+                            to={item.href}
+                            className={`text-black
+                          px-6 py-4 text-sm font-bold mx-4 me-0 nav-menu  ${isActive ? 'text-RedLight' : ''}`}
+                          // aria-current={item.current ? 'page' : undefined}
+                          >
+                            {item.name}
+                          </Link>
+                        )
+                      })}
                     </div>
                   </div>
                 </div>
@@ -115,7 +115,7 @@ export default function Navbar() {
                   <form>
                     <div className="relative mr-6">
                       <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                        <svg className="w-4 h-4" ariaHidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                        <svg className="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                           <path stroke="currentColor" strokeLinejoin="round" strokeWidth="3" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
                         </svg>
                       </div>
