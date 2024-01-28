@@ -1,5 +1,4 @@
 
-import React from 'react'
 import './App.css'
 
 import { Route, Routes } from 'react-router-dom';
@@ -9,7 +8,7 @@ import { Provider } from 'react-redux'
 // import Cart from './components/Cart'
 import Navbar from './components/navbar/Navbar';
 import Footer from './components/footer/Footer';
-import Banner from './components/banner/Banner';
+import Banner from './components/hero-section/HeroSection';
 // import Card from './components/card/Card';
 import Newproducts from './components/card/Newproducts';
 import Cartpage from './components/cartpage/Cartpage';
@@ -27,10 +26,8 @@ const App = () => {
               <Route path='/cartpage' element={<Cartpage />} />
               <Route path='products/:productId' element={<Detailpage />} />
               <Route path='/finalpage' element={<Finalpage />} />
-              {/* <Route path="products/:productId" element={<Detailpage />} /> */}
             </Routes>
           <Footer />
-          {/* </div> */}
         </div>
       </Provider>
     </>
