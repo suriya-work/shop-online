@@ -1,8 +1,7 @@
-import React from 'react'
 import { BoxImage } from '../api/box'
 const Box = () => {
     return (
-        <div className='container mx-uto  grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-5 mt-12'>
+        <div className='container mx-uto  grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-5 my-12'>
             {
                 BoxImage.map((box) => {
                     return (
