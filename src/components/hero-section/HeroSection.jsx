@@ -5,7 +5,7 @@ const HeroSection = () => {
     return (
         <>
             <div className='container '>
-                <img src={fashion} alt="fashion" className=' flex justify-end' />
+                <img src={fashion} alt="fashion" className='rounded-xl' />
             </div>
             {/* <div className='container grid sm:grid-cols-2 lg:grid-cols-2 mt-[50px]'>
                 <div className='flex flex-col  justify-center items-center xl:items-start'>
