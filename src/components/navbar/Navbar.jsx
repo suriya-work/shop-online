@@ -31,7 +31,6 @@ export default function Navbar() {
   const dispatch = useDispatch();
   const { amount, cart, products } = useSelector((state) => state.product);
 
-
   useEffect(() => {
     dispatch(fetchAllProducts())
   }, [])
@@ -39,7 +38,6 @@ export default function Navbar() {
   useEffect(() => {
     dispatch(updateTotal())
   }, [dispatch, cart])
-
 
   const searchHandler = (e) => {
     const inputData = e.target.value
