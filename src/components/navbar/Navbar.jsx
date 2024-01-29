@@ -101,7 +101,7 @@ export default function Navbar() {
                             key={item.name}
                             to={item.href}
                             className={`text-black
-                          px-6 py-4 text-sm font-bold mx-4 me-0 nav-menu  ${isActive ? 'text-RedLight' : ''}`}
+                          px-6 py-4 text-sm font-bold mx-4 me-0 nav-menu  ${isActive && 'text-RedLight'}`}
                           // aria-current={item.current ? 'page' : undefined}
                           >
                             {item.name}
