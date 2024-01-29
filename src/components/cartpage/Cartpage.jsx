@@ -34,7 +34,7 @@ function Cartpage() {
                 ) : (
                     myData.map((item) => {
                         return (
-                            <div className="border-t-[2px] border-t-myRed w-[100%] md:w-[73%] lg:w-[70%]">
+                            <div key={item.id} className="border-t-[2px] border-t-myRed w-[100%] md:w-[73%] lg:w-[70%]">
                                 <div className="flex  md:flex-row  justify-between items-center w-[100%] md:w-[73%] lg:w-[100%] mt-6">
 
 
@@ -59,18 +59,18 @@ function Cartpage() {
                                         />
                                         <div className="flex gap-3">
                                             <button
-                                                className="border w-[25px] h-[25px] font-bold rounded-full cursor-pointer"
+                                                className="border text-[12px] w-[25px] h-[25px] font-bold rounded-full cursor-pointer"
                                                 onClick={() => dispatch(incrementQuantity(item.id))}
                                             >
                                                 +
                                             </button>
                                             <div className="font-bold">
-                                                <p className="pt-1">
+                                                <p className="pt-1 text-[12px]">
                                                     {item.quantity}
                                                 </p>
                                             </div>
                                             <button
-                                                className="border w-[25px] h-[25px] font-bold rounded-full cursor-pointer"
+                                                className="border text-[12px] w-[25px] h-[25px] font-bold rounded-full cursor-pointer"
                                                 onClick={() => dispatch(decrementQuantity(item.id))}
                                             >
                                                 -
