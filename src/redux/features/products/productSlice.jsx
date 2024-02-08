@@ -56,10 +56,10 @@ const productSlice = createSlice({
             state.isLoading = false
         })
 
-        bulider.addCase(fetchAllProducts.pending, (state, action) => {
+        bulider.addCase(fetchAllProducts.pending, (state) => {
             state.isLoading = true
         })
-        bulider.addCase(fetchAllProducts.rejected, (state, action) => {
+        bulider.addCase(fetchAllProducts.rejected, (state) => {
             state.isLoading = false
             state.products = []
             state.isError = true
