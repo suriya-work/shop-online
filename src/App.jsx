@@ -5,8 +5,7 @@ import { Route, Routes } from "react-router-dom";
 import { store } from "./redux/store";
 import { Provider } from "react-redux";
 // import Cart from './components/Cart'
-import Header from "./components/header/Header";
-
+import { Header } from "./components/header/Header";
 import Footer from "./components/footer/Footer";
 import Banner from "./components/hero-section/HeroSection";
 // import Card from './components/card/Card';
