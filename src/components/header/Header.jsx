@@ -4,7 +4,7 @@ import { AiFillInstagram } from "react-icons/ai";
 import { BiLogoTelegram, BiLogoFacebook } from "react-icons/bi";
 import { FiSearch } from "react-icons/fi";
 import logo from "/images/logo.png";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import {
   fetchAllProducts,
   updateTotal,
@@ -25,12 +25,13 @@ const SmIcons = [
 ];
 
 export const Header = () => {
+  const location = useLocation();
   const [search, setSearch] = useState(" ");
   const [searchMyData, setSearchMyData] = useState([]);
   const [shown, setShown] = useState(false);
 
   const dispatch = useDispatch();
-  const { products, cart , amount} = useSelector((state) => state.product);
+  const { products, cart, amount } = useSelector((state) => state.product);
 
   useEffect(() => {
     dispatch(fetchAllProducts());
@@ -74,13 +75,20 @@ export const Header = () => {
           </form>
 
           <ul className="flex gap-16">
-            {navigationItems.map((item) => (
-              <Link to={item.href} key={`id-${item.href}-${item.title}`}>
-                <li className="hover:text-primery cursor-pointer rounded-3xl transition duration-300 flex items-center">
-                  {item.title}
-                </li>
-              </Link>
-            ))}
+            {navigationItems.map((item) => {
+              const isActive = location.pathname === item.href;
+              return (
+                <Link to={item.href} key={`id-${item.href}-${item.title}`}>
+                  <li
+                    className={`hover:text-primery cursor-pointer rounded-3xl transition duration-300 flex items-center  ${
+                      isActive && "text-primery"
+                    }`}
+                  >
+                    {item.title}
+                  </li>
+                </Link>
+              );
+            })}
           </ul>
 
           <div className="flex gap-2 ">
@@ -97,7 +105,12 @@ export const Header = () => {
           </div>
         </div>
       </header>
-      <Navbar products={products} cart={cart} updateTotal={updateTotal} amount={amount} />
+      <Navbar
+        products={products}
+        cart={cart}
+        updateTotal={updateTotal}
+        amount={amount}
+      />
       <Filtermodule
         searchMyData={searchMyData}
         shown={shown}

@@ -29,7 +29,7 @@ function Navbar({ products, cart, updateTotal, amount }) {
     dispatch(updateTotal());
   }, [dispatch, cart]);
   return (
-    <div className="w-full h-auto py-5 bg-[#262626] text-white sticky top-0 z-50">
+    <div className="w-full py-5 bg-[#262626] text-white sticky top-0 z-50">
       <div className="container flex items-center justify-between">
         {/* first part */}
         <div className="flex gap-5 items-center">
@@ -78,7 +78,7 @@ function Navbar({ products, cart, updateTotal, amount }) {
               <span className="">{item.icon}</span>
               {item.title}
               {index === 2 && (
-                <span className="w-[20px] h-[20px] text-[12px] px-[5px] py-[2px] rounded-full bg-[#3dc47e] text-white">
+                <span className="w-[20px] h-[20px] flex items-center justify-center text-[12px] rounded-full bg-[#3dc47e] text-white">
                   {amount}
                 </span>
               )}
