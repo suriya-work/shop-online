@@ -13,7 +13,7 @@ const Cartmodal = ({ cart, shown, close }) => {
       >
         {cart.length === 0 ? (
           <div className="h-full flex justify-center items-center text-center  text-2xl">
-            <h2 className="text-center m-auto">Your Cart Is Empty!</h2>
+            <h2 className="text-center m-auto text-black">Your Cart Is Empty!</h2>
           </div>
         ) : (
           cart.slice(0, 3).map((search) => {
@@ -25,7 +25,7 @@ const Cartmodal = ({ cart, shown, close }) => {
                   </Link>
                 </div>
                 <div className=" w-[80%] flex flex-col gap-4">
-                  <p className="">{search.title}</p>
+                  <p className="text-black">{search.title.substring(0, 35)}...</p>
                   <div className="flex items-center gap-4">
                     <p className="text-primery font-bold mt-1 ">
                       ${search.price}
