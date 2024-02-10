@@ -2,11 +2,13 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AiFillInstagram } from "react-icons/ai";
 import { BiLogoTelegram, BiLogoFacebook } from "react-icons/bi";
+import { FiSearch } from "react-icons/fi";
 import logo from "/images/logo.png";
 import { Link } from "react-router-dom";
-import { fetchAllProducts , updateTotal } from "../../redux/features/products/productSlice";
-// import SearchIco from "../../assets/icons/searchIco";
-// import Filtermodal from "../filterModule/Filtermodal";
+import {
+  fetchAllProducts,
+  updateTotal,
+} from "../../redux/features/products/productSlice";
 import Filtermodule from "../filtermodule/Filtermodule";
 import Navbar from "../navbar/Navbar";
 
@@ -28,7 +30,7 @@ export const Header = () => {
   const [shown, setShown] = useState(false);
 
   const dispatch = useDispatch();
-  const { products, cart} = useSelector((state) => state.product);
+  const { products, cart , amount} = useSelector((state) => state.product);
 
   useEffect(() => {
     dispatch(fetchAllProducts());
@@ -58,15 +60,13 @@ export const Header = () => {
           <form>
             <div className="relative">
               <div className="absolute inset-y-0  flex items-center pr-3 pointer-events-none right-0">
-                {/* <SearchIco /> */}
+                <FiSearch size={18} color="gray" />
               </div>
               <input
                 type="text"
                 placeholder="Search..."
                 value={search}
                 onChange={searchHandler}
-                autoComplete="off"
-                id="default-search"
                 className="rounded-md py-[6px] pr-12 pl-2 outline-none text-sm text-gray-900 border"
                 required
               />
@@ -76,10 +76,7 @@ export const Header = () => {
           <ul className="flex gap-16">
             {navigationItems.map((item) => (
               <Link to={item.href} key={`id-${item.href}-${item.title}`}>
-                <li 
-                  className="hover:text-primery cursor-pointer rounded-3xl transition duration-300 flex items-center"
-                 
-                >
+                <li className="hover:text-primery cursor-pointer rounded-3xl transition duration-300 flex items-center">
                   {item.title}
                 </li>
               </Link>
@@ -88,7 +85,8 @@ export const Header = () => {
 
           <div className="flex gap-2 ">
             {SmIcons.map((item) => (
-              <span key={item.comp}
+              <span
+                key={item.comp}
                 className="cursor-pointer"
                 onMouseOver={({ target }) => (target.style.color = "#4E66EC")}
                 onMouseOut={({ target }) => (target.style.color = "gray")}
@@ -99,7 +97,7 @@ export const Header = () => {
           </div>
         </div>
       </header>
-      <Navbar data={products} cart={cart} updateTotal={updateTotal} />
+      <Navbar products={products} cart={cart} updateTotal={updateTotal} amount={amount} />
       <Filtermodule
         searchMyData={searchMyData}
         shown={shown}
