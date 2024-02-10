@@ -19,7 +19,7 @@ const listItems = [
   },
 ];
 
-function Navbar({ products, cart, updateTotal }) {
+function Navbar({ products, cart, updateTotal, amount }) {
   const [shown, setShown] = useState(false);
   const handlechange = (index) => {
     index === 2 && setShown(!shown);
@@ -49,7 +49,7 @@ function Navbar({ products, cart, updateTotal }) {
         </div>
 
         {/* middle part */}
-        {/* <div className="flex gap-2 items-center">
+        <div className="flex gap-2 items-center">
           {products.slice(0, 1).map((item) => (
             <>
               <div className="rounded-2xl w-[50px] h-[50px] overflow-hidden bg-white ">
@@ -65,17 +65,23 @@ function Navbar({ products, cart, updateTotal }) {
               </div>
             </>
           ))}
-        </div> */}
+        </div>
 
         {/* third part */}
         <ul className="flex gap-5">
           {listItems.map((item, index) => (
-            <li key={item.title}
+            <li
+              key={item.title}
               className="flex gap-1 items-center hover:text-primery cursor-pointer"
               onClick={() => handlechange(index)}
             >
               <span className="">{item.icon}</span>
               {item.title}
+              {index === 2 && (
+                <span className="w-[20px] h-[20px] text-[12px] px-[5px] py-[2px] rounded-full bg-[#3dc47e] text-white">
+                  {amount}
+                </span>
+              )}
             </li>
           ))}
         </ul>
