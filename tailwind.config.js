@@ -8,11 +8,14 @@ export default {
     extend: {
       colors: {
         'white': '#fff',
-        'primary':'',
+        'primery': "#4E66EC",
         'green': '#487664',
         'myRed': '#969696',
         'Red': '#ff0000',
-        'RedLight' : '#A71B4A',
+        'RedLight': '#A71B4A',
+      },
+      fontFamily: {
+        myFont: "Roboto, sans-serif",
       },
     },
     container: {
