@@ -1,8 +1,9 @@
-import { BiCategory, BiUser, BiHeart } from "react-icons/bi";
+import { BiUser, BiHeart } from "react-icons/bi";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
 import { useDispatch } from "react-redux";
 import Cartmodal from "../cartmodal/Cartmodal";
 import { useEffect, useState } from "react";
+import Category from "../category/Category";
 
 const listItems = [
   {
@@ -29,14 +30,11 @@ function Navbar({ products, cart, updateTotal, amount }) {
     dispatch(updateTotal());
   }, [dispatch, cart]);
   return (
-    <div className="w-full py-5 bg-[#262626] text-white sticky top-0 z-50">
+    <div className="w-full h-[85px] flex items-center justify-center py-5 bg-[#262626] text-white sticky top-0 z-50">
       <div className="container flex items-center justify-between">
         {/* first part */}
-        <div className="flex gap-5 items-center">
-          <div className="flex items-center gap-1">
-            <BiCategory />
-            <p className="font-semibold text-lg">Categories</p>
-          </div>
+        <div className="flex items-center gap-5">
+          <Category />
           <select className="text-xs bg-[#262626] duration-300 text-gray-400 border-none outline-none px-1 py-1">
             <option>USD</option>
             <option>EUR</option>
@@ -47,7 +45,7 @@ function Navbar({ products, cart, updateTotal, amount }) {
             <option>Arabic</option>
           </select>
         </div>
-
+        <span className="border-r-[1px] border-gray-500 w-[1px] h-[50px]"></span>
         {/* middle part */}
         <div className="flex gap-2 items-center">
           {products.slice(0, 1).map((item) => (
@@ -66,6 +64,7 @@ function Navbar({ products, cart, updateTotal, amount }) {
             </>
           ))}
         </div>
+        <span className="border-r-[1px] border-gray-500 w-[1px] h-[50px]"></span>
 
         {/* third part */}
         <ul className="flex gap-5">
