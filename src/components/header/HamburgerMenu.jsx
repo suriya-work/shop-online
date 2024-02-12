@@ -2,6 +2,8 @@ import  { useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { RxCross2 } from "react-icons/rx";
 import { Link } from "react-router-dom";
+import logo from "/images/logo.png";
+
 
 export const Hamburger = ({ navigationItems }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -32,7 +34,7 @@ export const Hamburger = ({ navigationItems }) => {
       >
         <div className="flex w-[75%] items-center justify-between pt-12">
           <div className="flex items-center gap-2">
-            <img src="/public/images/logo.png" alt="logo" />
+            <img src={logo} alt="logo" />
           </div>
           <RxCross2 onClick={handleClick} size={20} />
         </div>
