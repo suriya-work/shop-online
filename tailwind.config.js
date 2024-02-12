@@ -19,7 +19,12 @@ export default {
       },
     },
     container: {
-      center: true
+      center: true,
+      padding: {
+        DEFAULT: '1rem',
+        lg: '3rem',
+        xl: '4rem',
+      }
     },
   },
   plugins: [],
