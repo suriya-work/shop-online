@@ -1,78 +1,111 @@
-import React, { useEffect, useState } from 'react';
-import Title from '../title/Title';
-import { IoIosStarOutline } from 'react-icons/io';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchAllProducts } from '../../redux/features/products/productSlice';
-import { addToCart } from '../../redux/features/products/productSlice';
-import { Link } from 'react-router-dom';
+import { useEffect } from "react";
+import Title from "../title/Title";
+import { FaStar } from "react-icons/fa";
+import { MdAddShoppingCart, MdFavoriteBorder } from "react-icons/md";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchAllProducts } from "../../redux/features/products/productSlice";
+import { addToCart } from "../../redux/features/products/productSlice";
+import { Link } from "react-router-dom";
 
 const Card = (props) => {
-    const dispatch = useDispatch();
-    const myData = useSelector((state) => state.product.products);
-    useEffect(() => {
-        dispatch(fetchAllProducts())
-    }, [])
+  const dispatch = useDispatch();
+  const myData = useSelector((state) => state.product.products);
+  useEffect(() => {
+    dispatch(fetchAllProducts());
+  }, []);
 
+  // filter search
+  const searchMyData = myData
+    .filter((items) => items.category === props.firstName)
+    .slice(0, 4);
+  return (
+    <div className="mb-28 w-[100%] ">
+      <div className="">
+        <Title>
+          <b>Flash Sales</b>
+        </Title>
+      </div>
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 place-items-center gap-5">
+        {searchMyData
+          // .filter((cat) => cat.category === props.filterName)
+          // .slice(0, 4)
+          .map((item) => {
+            return (
+              <section
+                className=" flex flex-col justify-around w-[280px] h-[370px] bg-white rounded-md shadow-md overflow-hidden hover:shadow-lg cursor-pointer  transition duration-500 "
+                key={item.id}
+              >
+                <Link to={`/products/${item.id}`}>
+                  <img
+                    src={item.image}
+                    alt="aks"
+                    className="w-[160px] h-[160px] overflow-hidden mt-5 transition duration-300 ease-in-out hover:scale-110 m-auto"
+                  />
+                </Link>
+                {/* first section */}
+                <div className="pl-5 flex justify-between h-[40%]">
+                  <div className="flex flex-col justify-around">
+                    <p className=" text-sm font-semibold" title={item.title}>
+                      {item.title.substring(0, 20)}...
+                    </p>
 
-    // filter search
-    const searchMyData = myData.filter((items) => items.category === props.firstName).slice(0, 4)
- 
-    return (
-        <div className='container mx-auto pb-[5rem]'>
-            <div className='text-center'>
-                <Title>{props.titleName}</Title>
-            </div>
+                    <div className="flex gap-5 ">
+                      <span className="flex">
+                        <FaStar size={16} color="gold" />
+                        <FaStar size={16} color="gold" />
+                        <FaStar size={16} color="gold" />
+                        <FaStar size={16} color="gold" />
+                        <FaStar size={16} color="gold" />
+                      </span>
+                      <span className="text-sm text-gray-500">
+                        ({item.rating.count})
+                      </span>
+                    </div>
 
-            <div className='grid grid-cols sm:grid-cols md:grid-cols-2  lg:grid-cols-4 xl:mx-[14px] justify-center gap-7 cartItems'>
-                {
-                    searchMyData.map((item) => {
-                        return (
-                            <div key={item.id} className='border rounded-[30px] overflow-hidden w-[300px] h-[550px] p-5 hover:shadow-2xl cursor-pointer'>
-                            
-                                <Link to={`/products/${item.id}`}>
-                                    <img src={item.image} alt="api" className='w-[100%] h-[50%]' />
-                                </Link>
-                                <div className='flex justify-center pt-5'>
-                                    <IoIosStarOutline size={14} color='#A71B4A' />
-                                    <IoIosStarOutline size={14} color='#A71B4A' />
-                                    <IoIosStarOutline size={14} color='#A71B4A' />
-                                    <IoIosStarOutline size={14} color='#A71B4A' />
-                                    <IoIosStarOutline size={14} color='#A71B4A' />
-                                </div>
-                                <p className='text-center text-[15px] text-black pt-7 truncate'>{item.title}</p>
-                                <p className='text-center text-[14px] text-black pt-7'>{item.category}</p>
-                                <div className=" text-center mb-10">
-                                    <p
-                                        className="text-[#A71B4A] text-[16px] font-bold mt-7"
-                                
-                                    >
-                                        ${item.price}
-                                    </p>
-                                    <button title='Add To Cart'
-                                        className="border text-black rounded-[20px] w-[150px] h-[40px] mt-6  font-bold hover:bg-myRed hover:text-white"
-                    
-                                        onClick={() => dispatch(addToCart({
-                                            id: item.id,
-                                            title: item.title,
-                                            image: item.image,
-                                            price: item.price,
-                                        }))}
-                                   
-                                    >
+                    <p className="text-red-500 text-sm font-bold mb-3 ">
+                      ${item.price}
+                    </p>
+                  </div>
 
-                                        add to cart
-                                    </button>
-                                </div>
-                            </div>
+                  {/* second section */}
+
+                  <div className="flex flex-col items-center justify-around pr-5">
+                    <MdFavoriteBorder
+                      size={21}
+                      className="hover:text-red-500 mb-3"
+                    />
+                    <button
+                      className="border mt-6 bg-white text-black rounded-md p-2  justify-center items-center  hover:bg-primery hover:text-white transition-all ease-linear duration-300  "
+                      id="abc"
+                      onClick={() =>
+                        dispatch(
+                          addToCart({
+                            id: item.id,
+                            title: item.title,
+                            image: item.image,
+                            price: item.price,
+                          })
                         )
-                    })
-                }
+                      }
+                    >
+                      <MdAddShoppingCart />
+                    </button>
+                  </div>
+                </div>
+              </section>
+            );
+          })}
+      </div>
 
-            </div>
-
-
+      {/* {mainData.map(item=>{
+      return(
+        <div key={item.id}>
+          <p>{item.title}</p>
         </div>
-    )
-}
+      )
+    })} */}
+    </div>
+  );
+};
 
-export default Card
+export default Card;
