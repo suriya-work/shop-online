@@ -74,7 +74,7 @@ function Navbar({ products, cart, updateTotal, amount }) {
               className="flex gap-1 items-center hover:text-primery cursor-pointer"
               onClick={() => handlechange(index)}
             >
-              <span className="">{item.icon}</span>
+              <span>{item.icon}</span>
               {item.title}
               {index === 2 && (
                 <span className="w-[20px] h-[20px] flex items-center justify-center text-[12px] rounded-full bg-[#3dc47e] text-white">
