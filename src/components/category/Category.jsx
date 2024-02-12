@@ -1,4 +1,5 @@
 import { BiCategory } from "react-icons/bi";
+import lady from '../../../public/images/lady-menu.png'
 
 const categoryItemsList = [
   {
@@ -71,7 +72,7 @@ function Category() {
           ))}
         </div>
         <img
-          src="/public/images/lady-menu.png"
+          src={lady}
           alt="lady"
           className="ml-auto w-[200px]"
         />
