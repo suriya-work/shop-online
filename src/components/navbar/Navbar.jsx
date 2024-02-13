@@ -30,7 +30,7 @@ function Navbar({ products, cart, updateTotal, amount }) {
     dispatch(updateTotal());
   }, [dispatch, cart]);
   return (
-    <div className="w-full h-[85px] flex items-center justify-center py-5 bg-[#262626] text-white sticky top-0 z-50">
+    <div className="w-full h-[85px] hidden md:flex items-center justify-center py-5 bg-[#262626] text-white sticky top-0 z-50">
       <div className="container flex items-center justify-between">
         {/* first part */}
         <div className="flex items-center gap-5">
