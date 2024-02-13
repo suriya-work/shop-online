@@ -5,11 +5,12 @@ import { HiOutlineShoppingBag, HiShoppingBag } from "react-icons/hi2";
 
 const NavigationListItems = [
   {
-    title: "My Acc",
-    href: "/account",
+    title: "Home",
+    href: "/",
     iconOutline: <RiHome2Line size={20} />,
     iconActive: <RiHome2Fill size={20} />,
   },
+
   {
     title: "Cart",
     href: "/cartpage",
@@ -23,18 +24,18 @@ const NavigationListItems = [
     iconActive: <BiSolidCategory size={20} />,
   },
   {
-    title: "Home",
-    href: "/",
+    title: "My Acc",
+    href: "/account",
     iconOutline: <RiHome2Line size={20} />,
     iconActive: <RiHome2Fill size={20} />,
   },
 ];
 
-function MobileNavbar() {
+function MobileNavbar({ amount }) {
   const location = useLocation();
   return (
-    <div className="w-full flex items-center justify-center md:hidden right-0 fixed bottom-[0] text-gray-500 bg-white shadow-[0_8px_30px_rgb(0,0,0,0.12)] z-[99] h-[70px] ">
-      <ul className="grid grid-cols-4">
+    <div className="w-full md:hidden right-0 fixed bottom-[0] text-gray-500 bg-white shadow-[0_8px_30px_rgb(0,0,0,0.12)] z-[99] h-20 ">
+      <ul className="grid grid-cols-4 pt-4">
         {NavigationListItems.map((item) => {
           const isActive = location.pathname === item.href;
           return (
@@ -44,11 +45,19 @@ function MobileNavbar() {
                   isActive && "text-primery"
                 } `}
               >
-                {isActive ? (
-                  <span>{item.iconActive}</span>
-                ) : (
-                  <span>{item.iconOutline}</span>
-                )}
+                <div className="flex relative">
+                  {item.title === "Cart" && (
+                    <span className="absolute left-6 px-[5px] py-[1px] text-xs rounded-full bg-[#3dc47e] text-white">
+                      {amount}
+                    </span>
+                  )}
+
+                  {isActive ? (
+                    <span>{item.iconActive}</span>
+                  ) : (
+                    <span>{item.iconOutline}</span>
+                  )}
+                </div>
 
                 <span>{item.title}</span>
               </li>

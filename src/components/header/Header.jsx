@@ -72,7 +72,7 @@ export const Header = () => {
             onClick={() => navigate("/cartpage")}
           >
             <HiOutlineShoppingBag size={20} />
-            <span className="px-[5px] py-[1px] text-xs rounded-full bg-[#3dc47e] text-white">
+            <span className="w-[20px] h-[20px] flex items-center justify-center text-[12px] rounded-full bg-[#3dc47e] text-white">
               {amount}
             </span>
           </div>
@@ -104,7 +104,7 @@ export const Header = () => {
           <SerachBox products={products} />
         </div>
       {/* </div> */}
-      <MobileNavbar />
+      <MobileNavbar  amount={amount} />
     </>
   );
 };

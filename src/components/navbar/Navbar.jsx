@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import Cartmodal from "../cartmodal/Cartmodal";
 import { useEffect, useState } from "react";
 import Category from "../category/Category";
+import { fetchAllProducts } from "../../redux/features/products/productSlice";
 
 const listItems = [
   {
@@ -22,6 +23,7 @@ const listItems = [
 
 function Navbar({ products, cart, updateTotal, amount }) {
   const [shown, setShown] = useState(false);
+  const [product, setProduct] = useState(null);
   const handlechange = (index) => {
     index === 2 && setShown(!shown);
   };
@@ -29,6 +31,44 @@ function Navbar({ products, cart, updateTotal, amount }) {
   useEffect(() => {
     dispatch(updateTotal());
   }, [dispatch, cart]);
+  useEffect(() => {
+    dispatch(fetchAllProducts());
+  }, [dispatch]);
+
+  useEffect(() => {
+    // Function to select a random product from the array
+    if (products && products.length > 0) {
+      const selectRandomProduct = () => {
+        const index = Math.floor(Math.random() * products.length);
+        return products[index];
+      };
+
+      const storedProductData = localStorage.getItem("selectedProduct");
+      const storedDate = storedProductData
+        ? JSON.parse(storedProductData).date
+        : null;
+      const currentDate = new Date().toISOString().split("T")[0];
+
+      if (!storedDate || storedDate !== currentDate) {
+        // If it's a new day or no product is stored, select a random product
+        const randomProduct = selectRandomProduct();
+        // Store the selected product and the current date
+        localStorage.setItem(
+          "selectedProduct",
+          JSON.stringify({ date: currentDate, product: randomProduct })
+        );
+        setProduct(randomProduct);
+      } else {
+        // If a product is already stored for today, use it
+        const storedProduct = JSON.parse(storedProductData).product;
+        setProduct(storedProduct);
+      }
+    }
+
+    // Set the random product when the component mounts or products update
+  }, [products]);
+
+
   return (
     <div className="w-full h-[85px] hidden md:flex items-center justify-center py-5 bg-[#262626] text-white sticky top-0 z-50">
       <div className="container flex items-center justify-between">
