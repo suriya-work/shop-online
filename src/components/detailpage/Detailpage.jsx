@@ -1,51 +1,173 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { addToCart } from "../../redux/features/products/productSlice";
-import { IoIosStarOutline, IoMdArrowRoundBack } from 'react-icons/io';
+import { MdAddShoppingCart, MdFavoriteBorder } from "react-icons/md";
+
+const sizeListItems = [
+  {
+    size: "xs",
+    isAvailable: false,
+  },
+  {
+    size: "s",
+    isAvailable: true,
+  },
+  {
+    size: "m",
+    isAvailable: true,
+  },
+  {
+    size: "l",
+    isAvailable: true,
+  },
+  {
+    size: "xl",
+    isAvailable: false,
+  },
+];
+
+const ColorListItems = [
+  {
+    color: "bg-[#750430]",
+    isAvailable: false,
+  },
+  {
+    color: "bg-[#00a95d]",
+    isAvailable: true,
+  },
+  {
+    color: "bg-[#a2d2fc]",
+    isAvailable: true,
+  },
+  {
+    color: "bg-[#ff7a00]",
+    isAvailable: false,
+  },
+];
 
 function Detailpage() {
-  const navigat = useNavigate();
+  // const navigat = useNavigate();
   const dispatch = useDispatch();
-  const products = useSelector((state) => state.product.products);
+  const data = useSelector((state) => state.product.products);
   const { productId } = useParams();
 
-  const singlePost = products.find((item) => item.id === parseInt(productId));
+  const singlePost = data.find((item) => item.id === parseInt(productId));
+  const relatedCategory = data.filter(
+    (item) => item.category === singlePost.category
+  );
+
   return (
-    <>
+    <section className="container max-h-max w-full mb-32">
       <div
-        className="container mx-auto overflow-x-hidden mt-32 w-full h-auto mb-14 px-5"
+        className="grid grid-cols-1 lg:grid-cols-2 h-screen"
         key={singlePost.id}
       >
-        <div className="flex flex-col lg:flex-row">
-          <div className="w-full lg:w-[40%] bg-[#fff] shadow-md overflow-hidden border m-auto p-3 rounded-[16px]">
+        <div className="overflow-hidden w-full h- flex justify-center items-center ">
+          <div className="w-3/4 h-3/4 flex justify-center items-center ">
             <img
               src={singlePost.image}
               alt="productImage"
-              className="w-[60%] m-auto"
+              className="w-5/6 h-5/6 object-contain"
             />
           </div>
-          <div className="w-[100%] lg:w-[50%] h-[100%] flex flex-col pt-8 m-auto">
-            <p className="text-center lg:text-left font-bold text-[#464545]">BRAND NAME</p>
-            <p className="text-[28px] font-bold text-center lg:text-left">{singlePost.title}</p>
-            <div className='flex justify-center lg:justify-start pt-2'>
-              <IoIosStarOutline size={18} color='#A71B4A' />
-              <IoIosStarOutline size={18} color='#A71B4A' />
-              <IoIosStarOutline size={18} color='#A71B4A' />
-              <IoIosStarOutline size={18} color='#A71B4A' />
-              <IoIosStarOutline size={18} color='#A71B4A' />
+        </div>
 
-            </div>
-            <span className=" overflow-hidden pt-4">
-              <p className="text-[16px] text-center lg:text-left">{singlePost.description}...</p>
+        <div className="w-full flex justify-center flex-col gap-8 ">
+          <div>
+            <p className="text-[30px] font-bold">{singlePost.title}</p>
+            <span className="text-xl font-semibold text-gray-500">
+              ${singlePost.price}
             </span>
-            <p className="text-[#A71B4A] text-[20px] font-bold mt-7 flex justify-center lg:justify-start ">${singlePost.price}
+          </div>
+          {/* sizes */}
+          <ul className="flex gap-5">
+            <p>Size</p>
+            {sizeListItems.map((item) => (
+              <li
+                key={item}
+                className={`border px-3 py-1 rounded-md hover:shadow-md ${
+                  !item.isAvailable && "text-gray-200"
+                } `}
+              >
+                <button>{item.size.toUpperCase()}</button>
+              </li>
+            ))}
+          </ul>
+
+          {/* colors */}
+          <div className="flex gap-5">
+            <p>Color</p>
+            {ColorListItems.map((item) => (
+              <div
+                key={item}
+                className={`rounded-full w-5 h-5 hover:shadow-md cursor-pointer ${item.color} `}
+              ></div>
+            ))}
+          </div>
+
+          <div className="flex flex-col gap-3 pl-4 w-full py-3 h-auto rounded-md bg-[#e9e9e9]">
+            <p className="text-lg font-bold">${singlePost.price + 29}.98</p>
+            <div className="w-[95%] border border-b-gray-300 mr-auto"></div>
+            <p className="text-gray-500">+ Delivery = Total price</p>
+          </div>
+
+          {/* <span className=" w-[80%] h-[22%] overflow-hidden">
+            <p className="text-[16px]">
+              {singlePost.description.substring(0, 300)}...
             </p>
-            <div className="pt-[3rem] flex justify-between">
-              <button className="pb-3" onClick={() => navigat(-1)}>
-                <IoMdArrowRoundBack size={30} color="#A71B4A" />
-              </button>
+          </span> */}
+          <div className="flex justify-between items-center">
+            <button
+              className="hover:text-white rounded-md hover:bg-primery hover:border-primery flex gap-2 items-center  border border-gray-500 px-5 py-3"
+              id="abc"
+              onClick={() =>
+                dispatch(
+                  addToCart({
+                    id: singlePost.id,
+                    title: singlePost.title,
+                    image: singlePost.image,
+                    price: singlePost.price,
+                  })
+                )
+              }
+            >
+              <MdAddShoppingCart />
+              Add to cart
+            </button>
+            <button
+              className="hover:text-white rounded-full hover:bg-red-500 hover:border-red-500 flex gap-2 items-center border border-gray-500 px-3 py-3"
+              title="add to favorite"
+            >
+              <MdFavoriteBorder size={21} />
+            </button>
+            {/* <button onClick={() => navigat(-1)} className="hover:text-primery">
+              back
+            </button> */}
+          </div>
+        </div>
+      </div>
+      <p className="font-bold text-lg mt-12">YOU MIGHT ALSO LIKE THIS</p>
+      <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-10 mt-12 ">
+        {relatedCategory.slice(0, 4).map((item) => (
+          <div key={item} className="grid grid-cols-2 gap-3 ">
+            <Link to={`/products/${item.id}`}>
+              <div className="overflow-hidden w-full h-[100px] ">
+                <div className="w-full h-full flex justify-center items-center ">
+                  <img
+                    src={item.image}
+                    alt="productImage"
+                    className="max-w-[70%] h-full object-contain"
+                  />
+                </div>
+              </div>
+            </Link>
+            <div className="flex flex-col gap-4">
+              <p className="text-sm font-semibold" title={item.title}>
+                {item.title.substring(0, 12).toUpperCase()}...
+              </p>
+              <p className=" font-bold text-[#ff2e00]">${item.price}</p>
               <button
-                className="border bg-white pt-1 text-myRed rounded-2xl w-[150px] h-[50px]  justify-center items-center border-myRed  hover:bg-myRed  hover:text-white transition-all ease-linear duration-300  "
+                className="hover:text-white justify-center rounded-md hover:bg-primery hover:border-primery flex gap-2 items-center text-sm  border border-gray-500 px-1 py-1"
                 id="abc"
                 onClick={() =>
                   dispatch(
@@ -58,15 +180,14 @@ function Detailpage() {
                   )
                 }
               >
-                add to cart
+                <MdAddShoppingCart />
+                Add to cart
               </button>
-
             </div>
-
           </div>
-        </div>
+        ))}
       </div>
-    </>
+    </section>
   );
 }
 
