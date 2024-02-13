@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetchAllProducts } from "../../redux/features/products/productSlice";
 import { BsFillTrashFill } from "react-icons/bs";
 import Title from "../title/Title";
-import { decrementQuantity, incrementQuantity, removeItem, removeCartItem } from "../../redux/features/products/productSlice";
+import { decrementQuantity, incrementQuantity, removeItem } from "../../redux/features/products/productSlice";
 
 function Cartpage() {
     const dispatch = useDispatch();
