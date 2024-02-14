@@ -9,7 +9,7 @@ import { useLocation } from "react-router-dom";
 
 const listItems = [
   {
-    title: "Sign in",
+    title: "Sign In",
     icon: <BiUser />,
   },
   {
