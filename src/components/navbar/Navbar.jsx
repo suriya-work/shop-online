@@ -17,7 +17,7 @@ const listItems = [
     icon: <BiHeart />,
   },
   {
-    title: "Card",
+    title: "Cart",
     icon: <HiOutlineShoppingBag />,
   },
 ];

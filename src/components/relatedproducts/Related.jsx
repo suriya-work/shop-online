@@ -11,7 +11,7 @@ function Related({ data, singlePost }) {
   );
   console.log(singlePost);
   return (
-    <section className="container md:mb-1 mb-32">
+    <section className="container md:mb-0 mb-32">
       <p className="font-bold text-lg mt-12">YOU MIGHT ALSO LIKE THIS</p>
       <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-10 mt-12 ">
         {relatedCategory.slice(0, 4).map((item) => (

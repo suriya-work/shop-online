@@ -55,7 +55,7 @@ function Detailpage() {
   const singlePost = data.find((item) => item.id === parseInt(productId));
 
   return (
-    <section className=" max-h-max w-full mb-32">
+    <section className=" max-h-max w-full">
       <div
         className="container grid grid-cols-1 lg:grid-cols-2 md:h-screen"
         key={singlePost.id}

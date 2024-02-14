@@ -18,7 +18,7 @@ const App = () => {
   return (
     <>
       <Provider store={store}>
-        <div className="min-h-screen grid grid-rows-[80px_1fr_auto]">
+        <div className="min-h-screen grid grid-rows-[100px_1fr_auto]">
           <Header />
           <Routes>
             <Route path="/" element={<Banner />} />
