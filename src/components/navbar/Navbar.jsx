@@ -117,13 +117,13 @@ function Navbar({ products, cart, updateTotal, amount }) {
           {listItems.map((item, index) => (
             <li
               key={item.title}
-              className="flex gap-1 items-center hover:text-primery cursor-pointer"
+              className="flex gap-1 items-center text-sm hover:text-primery cursor-pointer"
               onClick={() => handlechange(index)}
             >
               <span>{item.icon}</span>
               {item.title}
               {index === 2 && (
-                <span className="w-[20px] h-[20px] flex items-center justify-center text-[12px] rounded-full bg-[#3dc47e] text-white">
+                <span className="w-[18px] h-[18px] flex items-center justify-center text-[12px] rounded-full bg-[#3dc47e] text-white">
                   {amount}
                 </span>
               )}
