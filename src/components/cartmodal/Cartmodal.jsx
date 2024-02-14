@@ -11,7 +11,7 @@ const Cartmodal = ({ cart, shown, close }) => {
         {" "}
       </div>
       <div
-        className="bg-white w-[100%] h-[300px] lg:w-[20%] lg:h-[350px]  top-[90px]  shadow-2xl border rounded-md absolute z-10 lg:right-[100px] lg:top-[80px] overflow-y-scroll scrollbar-hide "
+        className="bg-white w-[100%] h-[300px] lg:w-[20%] lg:h-[350px]  top-[90px]  shadow-2xl border rounded-md absolute z-10 lg:right-[100px] lg:top-[85px] overflow-y-scroll scrollbar-hide "
         onClick={(e) => {
           e.stopPropagation();
         }}
@@ -31,7 +31,7 @@ const Cartmodal = ({ cart, shown, close }) => {
                   <Link to={`/products/${search.id}`}>
                     <img
                       src={search.image}
-                      alt=""
+                      alt="image"
                       className="object-contain w-[50px] h-[50px]"
                     />
                   </Link>

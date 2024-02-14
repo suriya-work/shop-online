@@ -1,7 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { addToCart } from "../../redux/features/products/productSlice";
 import { MdAddShoppingCart, MdFavoriteBorder } from "react-icons/md";
+import Related from "../relatedproducts/Related";
 
 const sizeListItems = [
   {
@@ -52,9 +53,6 @@ function Detailpage() {
   const { productId } = useParams();
 
   const singlePost = data.find((item) => item.id === parseInt(productId));
-  const relatedCategory = data.filter(
-    (item) => item.category === singlePost.category
-  );
 
   return (
     <section className="container max-h-max w-full mb-32">
@@ -110,12 +108,6 @@ function Detailpage() {
             <div className="w-[95%] border border-b-gray-300 mr-auto"></div>
             <p className="text-gray-500">+ Delivery = Total price</p>
           </div>
-
-          {/* <span className=" w-[80%] h-[22%] overflow-hidden">
-            <p className="text-[16px]">
-              {singlePost.description.substring(0, 300)}...
-            </p>
-          </span> */}
           <div className="flex justify-between items-center">
             <button
               className="hover:text-white rounded-md hover:bg-primery hover:border-primery flex gap-2 items-center  border border-gray-500 px-5 py-3"
@@ -146,47 +138,7 @@ function Detailpage() {
           </div>
         </div>
       </div>
-      <p className="font-bold text-lg mt-12">YOU MIGHT ALSO LIKE THIS</p>
-      <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-10 mt-12 ">
-        {relatedCategory.slice(0, 4).map((item) => (
-          <div key={item} className="grid grid-cols-2 gap-3 ">
-            <Link to={`/products/${item.id}`}>
-              <div className="overflow-hidden w-full h-[100px] ">
-                <div className="w-full h-full flex justify-center items-center ">
-                  <img
-                    src={item.image}
-                    alt="productImage"
-                    className="max-w-[70%] h-full object-contain"
-                  />
-                </div>
-              </div>
-            </Link>
-            <div className="flex flex-col gap-4">
-              <p className="text-sm font-semibold" title={item.title}>
-                {item.title.substring(0, 12).toUpperCase()}...
-              </p>
-              <p className=" font-bold text-[#ff2e00]">${item.price}</p>
-              <button
-                className="hover:text-white justify-center rounded-md hover:bg-primery hover:border-primery flex gap-2 items-center text-sm  border border-gray-500 px-1 py-1"
-                id="abc"
-                onClick={() =>
-                  dispatch(
-                    addToCart({
-                      id: singlePost.id,
-                      title: singlePost.title,
-                      image: singlePost.image,
-                      price: singlePost.price,
-                    })
-                  )
-                }
-              >
-                <MdAddShoppingCart />
-                Add to cart
-              </button>
-            </div>
-          </div>
-        ))}
-      </div>
+      <Related data={data} singlePost={singlePost}/>
     </section>
   );
 }

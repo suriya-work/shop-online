@@ -19,7 +19,7 @@ const Card = (props) => {
     .filter((items) => items.category === props.firstName)
     .slice(0, 4);
   return (
-    <div className="mb-28 w-[100%] ">
+    <div className="w-[100%] ">
       <div className="">
         <Title>
           <b>Flash Sales</b>

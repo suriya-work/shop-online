@@ -6,7 +6,7 @@ import SocialPart from "./SocialPart";
 
 const Footer = () => {
     return (
-        <footer className="pl-[6rem] md:flex hidden justify-between flex-wrap flex-grow min-width-[800px] lg:mr-3 xl:rtl:pl-50 border-t-[1px] border-slate-500/30">
+        <footer className="pl-[6rem] md:flex hidden mt-20 justify-between flex-wrap flex-grow min-width-[800px] lg:mr-3 xl:rtl:pl-50 border-t-[1px] border-slate-500/30">
             {footerContent.map((item) => {
                 return (
                     <div className="mt-6 md:mt-0 lg:mt-6 leading-10" key={item.title}>

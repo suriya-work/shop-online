@@ -88,21 +88,21 @@ function Navbar({ products, cart, updateTotal, amount }) {
         <span className="border-r-[1px] border-gray-500 w-[1px] h-[50px]"></span>
         {/* middle part */}
         <div className="flex gap-2 items-center">
-          {products.slice(0, 1).map((item) => (
+          {product && (
             <>
               <div className="rounded-2xl w-[50px] h-[50px] overflow-hidden bg-white ">
-                <img src={item.image} className=" w-[80%] h-[80%] m-auto" />
+                <img src={product.image} className=" w-[80%] h-[80%] m-auto" />
               </div>
               <div>
                 <p className="text-sm truncate">
-                  {item.title.substring(0, 35)}...
+                  {product.title.substring(0, 35)}...
                 </p>
                 <p className="text-xs text-gray-400">
-                  {item.description.substring(0, 45)}...
+                  {product.description.substring(0, 45)}...
                 </p>
               </div>
             </>
-          ))}
+          )}
         </div>
         <span className="border-r-[1px] border-gray-500 w-[1px] h-[50px]"></span>
 

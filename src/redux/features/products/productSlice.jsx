@@ -6,6 +6,8 @@ const initialState = {
     products: [],
     cart: [],
     isError: false,
+    amount: 0,
+    total: 0
 }
 export const fetchAllProducts = createAsyncThunk(
     "productSlice/fetchAllProducts",
