@@ -8,7 +8,7 @@ import {
   removeCartItem,
   removeItem,
 } from "../../redux/features/products/productSlice";
-import Title from "../../components/title/Title";
+// import Title from "../../components/title/Title";
 import { Link } from "react-router-dom";
 import Related from "../relatedproducts/Related";
 
@@ -23,13 +23,13 @@ function Cartpage() {
 
   return (
     <>
-      <div className="container mt-10 grid w-full grid-cols-1 md:grid-cols-[2fr_1fr] gap-10 mb-12 ">
-        <div className="max-w-full flex flex-col gap-5">
+      <div className="container mt-10 grid  grid-cols-[1fr] md:grid-cols-[2fr_1fr] gap-10 mb-12">
+        <div className="flex flex-col gap-5">
           {mainData.length === 0 ? (
-            <div className="flex flex-col justify-center items-center text-2xl ">
+            <div className="flex flex-col  justify-center items-center text-2xl ">
               <h2>Your Cart Is Empty!</h2>
               <Link to="/">
-                <button className="border border-primery text-primery px-4 py-1 rounded-2xl mt-3 hover:bg-primery hover:text-white">
+                <button className="border border-gray-500 text-gray-500  px-4 py-1 rounded-2xl mt-3 hover:border-primery hover:bg-primery hover:text-white">
                   Go To Shop!
                 </button>
               </Link>
