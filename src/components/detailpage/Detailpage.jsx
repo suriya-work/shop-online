@@ -55,24 +55,24 @@ function Detailpage() {
   const singlePost = data.find((item) => item.id === parseInt(productId));
 
   return (
-    <section className="container max-h-max w-full mb-32">
+    <section className=" max-h-max w-full mb-32">
       <div
-        className="grid grid-cols-1 lg:grid-cols-2 h-screen"
+        className="container grid grid-cols-1 lg:grid-cols-2 md:h-screen"
         key={singlePost.id}
       >
-        <div className="overflow-hidden w-full h- flex justify-center items-center ">
-          <div className="w-3/4 h-3/4 flex justify-center items-center ">
+        <div className="overflow-hidden w-full h-[350px] md:h-[500px] md:w-[80%] md:mt-14 flex justify-center items-center  ">
+          <div className="w-full h-full flex justify-center items-center ">
             <img
               src={singlePost.image}
               alt="productImage"
-              className="w-5/6 h-5/6 object-contain"
+              className="max-w-[80%] max-h-[80%] object-contain"
             />
           </div>
         </div>
 
         <div className="w-full flex justify-center flex-col gap-8 ">
           <div>
-            <p className="text-[30px] font-bold">{singlePost.title}</p>
+            <p className="text-[25px] font-bold" title={singlePost.title}>{singlePost.title.substring(0 , 100)}...</p>
             <span className="text-xl font-semibold text-gray-500">
               ${singlePost.price}
             </span>
@@ -132,13 +132,11 @@ function Detailpage() {
             >
               <MdFavoriteBorder size={21} />
             </button>
-            {/* <button onClick={() => navigat(-1)} className="hover:text-primery">
-              back
-            </button> */}
+           
           </div>
         </div>
       </div>
-      <Related data={data} singlePost={singlePost}/>
+      <Related data={data} singlePost={singlePost} />
     </section>
   );
 }
