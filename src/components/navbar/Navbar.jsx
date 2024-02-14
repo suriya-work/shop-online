@@ -5,6 +5,7 @@ import Cartmodal from "../cartmodal/Cartmodal";
 import { useEffect, useState } from "react";
 import Category from "../category/Category";
 import { fetchAllProducts } from "../../redux/features/products/productSlice";
+import { useLocation } from "react-router-dom";
 
 const listItems = [
   {
@@ -22,6 +23,7 @@ const listItems = [
 ];
 
 function Navbar({ products, cart, updateTotal, amount }) {
+  const location = useLocation();
   const [shown, setShown] = useState(false);
   const [product, setProduct] = useState(null);
   const handlechange = (index) => {
@@ -31,9 +33,14 @@ function Navbar({ products, cart, updateTotal, amount }) {
   useEffect(() => {
     dispatch(updateTotal());
   }, [dispatch, cart]);
+
   useEffect(() => {
     dispatch(fetchAllProducts());
   }, [dispatch]);
+
+  useEffect(() => {
+    setShown(false)
+  }, [location]);
 
   useEffect(() => {
     // Function to select a random product from the array
@@ -67,7 +74,6 @@ function Navbar({ products, cart, updateTotal, amount }) {
 
     // Set the random product when the component mounts or products update
   }, [products]);
-
 
   return (
     <div className="w-full h-[85px] hidden md:flex items-center justify-center py-5 bg-[#262626] text-white sticky top-0 z-50">
