@@ -1,12 +1,14 @@
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 // import { BsFillSuitHeartFill } from "react-icons/bs";
 // import { RiDoubleQuotesL, RiDoubleQuotesR } from "react-icons/ri";
 import { footerContent } from "../api/footer";
 import SocialPart from "./SocialPart";
 
 const Footer = () => {
-    return (
-      <footer className="pl-[6rem] md:flex hidden mt-20 justify-between flex-wrap flex-grow min-width-[800px] lg:mr-3 xl:rtl:pl-50 border-t-[1px] border-slate-500/30">
+  return (
+    // <footer className="pl-[6rem] flex md:pb-0 pb-20 mt-20 justify-between flex-wrap flex-grow min-width-[800px] lg:mr-3 xl:rtl:pl-50 border-t-[1px] border-slate-500/30">
+    <footer className="container ">
+      <div className="grid grid-cols-1 md:grid-cols-4 mt-20 md:pb-0 pb-20 border-t-[1px] border-slate-500/30">
         {footerContent.map((item) => {
           return (
             <div className="mt-6 md:mt-0 lg:mt-6 leading-10" key={item.title}>
@@ -25,13 +27,14 @@ const Footer = () => {
             </div>
           );
         })}
-        <div className="">
-          <div className="flex flex-wrap py-4 md:py-8 md:px-4 w-full xl:max-w-[2100px] mx-auto">
-            <SocialPart />
-          </div>
+        <div className="mt-6">
+          {/* <div className="flex flex-wrap py-4 md:py-8 md:px-4 w-full xl:max-w-[2100px] mx-auto"> */}
+          <SocialPart />
         </div>
-      </footer>
-    );
+        {/* </div> */}
+      </div>
+    </footer>
+  );
 };
 
 export default Footer;
