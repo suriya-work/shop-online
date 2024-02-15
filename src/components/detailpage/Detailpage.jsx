@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { addToCart } from "../../redux/features/products/productSlice";
 import { MdAddShoppingCart, MdFavoriteBorder } from "react-icons/md";
 import Related from "../relatedproducts/Related";
+import AddToCartBtn from "../addtocartbtn/AddToCartBtn";
 
 const sizeListItems = [
   {
@@ -72,7 +73,9 @@ function Detailpage() {
 
         <div className="w-full flex justify-center flex-col gap-8 ">
           <div>
-            <p className="text-[25px] font-bold" title={singlePost.title}>{singlePost.title.substring(0 , 100)}...</p>
+            <p className="text-[25px] font-bold" title={singlePost.title}>
+              {singlePost.title.substring(0, 100)}...
+            </p>
             <span className="text-xl font-semibold text-gray-500">
               ${singlePost.price}
             </span>
@@ -109,30 +112,19 @@ function Detailpage() {
             <p className="text-gray-500">+ Delivery = Total price</p>
           </div>
           <div className="flex justify-between items-center">
-            <button
+            <AddToCartBtn
+              item={singlePost}
               className="hover:text-white rounded-md hover:bg-primery hover:border-primery flex gap-2 items-center  border border-gray-500 px-5 py-3"
-              id="abc"
-              onClick={() =>
-                dispatch(
-                  addToCart({
-                    id: singlePost.id,
-                    title: singlePost.title,
-                    image: singlePost.image,
-                    price: singlePost.price,
-                  })
-                )
-              }
             >
-              <MdAddShoppingCart />
+              {" "}
               Add to cart
-            </button>
+            </AddToCartBtn>
             <button
               className="hover:text-white rounded-full hover:bg-red-500 hover:border-red-500 flex gap-2 items-center border border-gray-500 px-3 py-3"
               title="add to favorite"
             >
               <MdFavoriteBorder size={21} />
             </button>
-           
           </div>
         </div>
       </div>
