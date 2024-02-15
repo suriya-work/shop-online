@@ -17,7 +17,7 @@ const Footer = () => {
                 {item.subtitles.map((subItem) => {
                   return (
                     <Link to="#" key={subItem.text}>
-                      <a className="text-sm hover:text-myRed font-bold text-[#282929] px-4 py-2">
+                      <a className="text-sm hover:text-primery font-bold text-[#282929] px-4 py-2">
                         {[subItem.text]}
                       </a>
                     </Link>

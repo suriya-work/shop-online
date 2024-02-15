@@ -11,7 +11,7 @@ const SocialPart = () => {
             return (
               <Link to="#" key={SocialItem.name}>
                 <a
-                  className="px-1 opacity-60 hover:opacity-100 transition-opacity duration-300 ease-in-out"
+                  className="px-1  hover:text-primery transition-opacity duration-300 ease-in-out"
                   aria-label={SocialItem.name}
                 >
                   <SocialItem.icon
