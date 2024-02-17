@@ -1,47 +1,6 @@
 import { BiCategory } from "react-icons/bi";
 import lady from '../../../public/images/lady-menu.png'
-
-const categoryItemsList = [
-  {
-    title: "SHOE & BAG",
-    list: ["Casual shoes", "boots", "sandals", "slippers"],
-  },
-  {
-    title: "SHOE & BAG",
-    list: ["Casual shoes", "boots", "sandals", "slippers"],
-  },
-  {
-    title: "SHOE & BAG",
-    list: ["Casual shoes", "boots", "sandals", "slippers"],
-  },
-  {
-    title: "SHOE & BAG",
-    list: [
-      "Casual shoes",
-      "boots",
-      "sandals",
-      "slippers",
-      "boots",
-      "sandals",
-      "slippers",
-      "boots",
-      "sandals",
-    ],
-  },
-  {
-    title: "SHOE & BAG",
-    list: ["Casual shoes", "boots", "sandals", "slippers"],
-  },
-  {
-    title: "SHOE & BAG",
-    list: ["Casual shoes", "boots", "sandals", "slippers"],
-  },
-  {
-    title: "SHOE & BAG",
-    list: ["Casual shoes", "boots", "sandals", "slippers"],
-  },
-];
-
+import { categoryItemsList } from "../../data/categoryItemsList";
 function Category() {
   return (
     <div className="group py-7 hover:text-primery">
