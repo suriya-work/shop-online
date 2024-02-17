@@ -5,12 +5,13 @@ import Cartmodal from "../cartmodal/Cartmodal";
 import { useEffect, useState } from "react";
 import Category from "../category/Category";
 import { fetchAllProducts } from "../../redux/features/products/productSlice";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const listItems = [
   {
     title: "Sign In",
     icon: <BiUser />,
+    href: "/signin",
   },
   {
     title: "Favorite",
@@ -39,7 +40,7 @@ function Navbar({ products, cart, updateTotal, amount }) {
   }, [dispatch]);
 
   useEffect(() => {
-    setShown(false)
+    setShown(false);
   }, [location]);
 
   useEffect(() => {
@@ -115,19 +116,21 @@ function Navbar({ products, cart, updateTotal, amount }) {
         {/* third part */}
         <ul className="flex gap-5">
           {listItems.map((item, index) => (
-            <li
-              key={item.title}
-              className="flex gap-1 items-center text-sm hover:text-primery cursor-pointer"
-              onClick={() => handlechange(index)}
-            >
-              <span>{item.icon}</span>
-              {item.title}
-              {index === 2 && (
-                <span className="w-[18px] h-[18px] flex items-center justify-center text-[12px] rounded-full bg-[#3dc47e] text-white">
-                  {amount}
-                </span>
-              )}
-            </li>
+            <Link to={item.href} key={item.title}>
+              <li
+               
+                className="flex gap-1 items-center text-sm hover:text-primery cursor-pointer"
+                onClick={() => handlechange(index)}
+              >
+                <span>{item.icon}</span>
+                {item.title}
+                {index === 2 && (
+                  <span className="w-[18px] h-[18px] flex items-center justify-center text-[12px] rounded-full bg-[#3dc47e] text-white">
+                    {amount}
+                  </span>
+                )}
+              </li>
+            </Link>
           ))}
         </ul>
       </div>
