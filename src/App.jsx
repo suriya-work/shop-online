@@ -14,6 +14,7 @@ import Cartpage from "./components/cartpage/Cartpage";
 import Detailpage from "./components/detailpage/Detailpage";
 import Finalpage from "./components/finalpage/Finalpage";
 import CantactUs from "./components/cantactus/CantactUs";
+import SignIn from "./components/signin/SignIn";
 const App = () => {
   return (
     <>
@@ -27,6 +28,7 @@ const App = () => {
             <Route path="products/:productId" element={<Detailpage />} />
             <Route path="/finalpage" element={<Finalpage />} />
             <Route path="/contactus" element={<CantactUs />} />
+            <Route path="/signin" element={<SignIn />} />
           </Routes>
           <Footer />
         </div>
