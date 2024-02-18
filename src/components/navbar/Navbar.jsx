@@ -5,7 +5,7 @@ import Cartmodal from "../cartmodal/Cartmodal";
 import { useEffect, useState } from "react";
 import Category from "../category/Category";
 import { fetchAllProducts } from "../../redux/features/products/productSlice";
-import { Link, useLocation } from "react-router-dom";
+import {  useLocation } from "react-router-dom";
 
 const listItems = [
   {
@@ -116,9 +116,8 @@ function Navbar({ products, cart, updateTotal, amount }) {
         {/* third part */}
         <ul className="flex gap-5">
           {listItems.map((item, index) => (
-            <Link to={item.href} key={item.title}>
-              <li
-               
+            // <Link to={item.href} key={item.title}>
+              <li key={item.title}
                 className="flex gap-1 items-center text-sm hover:text-primery cursor-pointer"
                 onClick={() => handlechange(index)}
               >
@@ -130,7 +129,7 @@ function Navbar({ products, cart, updateTotal, amount }) {
                   </span>
                 )}
               </li>
-            </Link>
+            // </Link>
           ))}
         </ul>
       </div>
