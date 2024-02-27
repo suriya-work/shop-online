@@ -2,6 +2,7 @@ import Card from '../card/Card';
 import fashion from '/images/top.png'
 import Cards from '../card/Cards';
 import Box from '../box/Box';
+import BrandLogo from '../brand/BrandLogo';
 const HeroSection = () => {
     return (
         <>
@@ -12,6 +13,7 @@ const HeroSection = () => {
             <Card titleName="Hot Products men's Clothing" firstName="men's clothing" />
             <Card titleName="Hot Products Jewelery" firstName="jewelery" />
             <Card titleName="Hot Products Electronics" firstName="electronics" />
+            <BrandLogo />
             <Cards />
         </>
     )
