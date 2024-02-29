@@ -1,10 +1,17 @@
-import girl1 from "/images/girl1.png";
-import girl2 from "/images/girl2.png";
+import { CardBox } from "../api/CardBox";
 const Cards = () => {
   return (
-    <div className="container w-full flex md:flex-row flex-col items-center gap-5 my-10">
-      <img src={girl1} alt="card1" className="md:w-[60%] w-[280px] h-[300px] rounded-md"/>
-      <img src={girl2} alt="card1" className="md:w-[60%] w-[280px] h-[300px] rounded-md"/>
+    <div className="container">
+      <div>
+        <h2 className="text-xl lg:text-3xl text-black font-semibold text-center my-10">
+          Follow products and discounts on Instagram
+        </h2>
+      </div>
+      <div className=" grid grid-cols-3 lg:grid-cols-6 items-center gap-5">
+        {CardBox.map((item) => (
+          <img key={item.id} src={item.image} alt="image" className=" rounded-md" />
+        ))}
+      </div>
     </div>
   );
 };
