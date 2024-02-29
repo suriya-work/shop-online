@@ -23,7 +23,7 @@ const BrandLogoItems = [
 
 const BrandLogo = () => {
   return (
-    <div className="container grid grid-cols-2 md:grid-cols-5 justify-items-center place-items-center my-10 gap-5">
+    <div className="container hidden lg:grid grid-cols-5 justify-items-center place-items-center my-10 gap-5">
       {BrandLogoItems.map((item) => (
         <div key={item.id}>
           <img src={item.image} alt="brand" width={130} />
