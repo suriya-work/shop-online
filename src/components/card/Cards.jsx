@@ -1,7 +1,7 @@
 import { CardBox } from "../api/CardBox";
 const Cards = () => {
   return (
-    <div className="container">
+    <div className="container md:p-0 p-5">
       <div>
         <h2 className="text-xl lg:text-3xl text-black font-semibold text-center my-10">
           Follow products and discounts on Instagram

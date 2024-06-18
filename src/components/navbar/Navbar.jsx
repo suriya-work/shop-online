@@ -98,7 +98,7 @@ function Navbar({ products, cart, updateTotal, amount }) {
           {product && (
             <>
               <div className="rounded-2xl w-[50px] h-[50px] overflow-hidden bg-white ">
-                <img src={product.image} className=" w-[80%] h-[80%] m-auto" />
+                <img src={product.image} className="w-[70%] h-[70%] m-auto mt-[6px]" />
               </div>
               <div>
                 <p className="text-sm truncate">
