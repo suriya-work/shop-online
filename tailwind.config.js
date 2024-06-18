@@ -8,7 +8,7 @@ export default {
     extend: {
       colors: {
         'white': '#fff',
-        'primery': "#4E66EC",
+        'primery': "#14b8a6",
         'green': '#487664',
         'myRed': '#969696',
         'Red': '#ff0000',
@@ -20,11 +20,11 @@ export default {
     },
     container: {
       center: true,
-      padding: {
-        DEFAULT: '1rem',
-        lg: '3rem',
-        xl: '4rem',
-      }
+      // padding: {
+      //   DEFAULT: '1rem',
+      //   lg: '3rem',
+      //   xl: '4rem',
+      // }
     },
   },
   plugins: [],
